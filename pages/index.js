@@ -9,13 +9,14 @@ export default function Home() {
     <div className="container">
       <main>
         <Header title="color picture" />
-        <hr />
-        <img src="../img.jpg" alt="Description of the image"></img>
+
+        <img src="../img.jpg" alt="色图"></img>
 
         <audio controls autoplay loop>
           <source src="../music.flac" type="audio/flac" />
           Your browser does not support the audio tag.
         </audio>
+        
       </main>
       <Footer />
     </div>
