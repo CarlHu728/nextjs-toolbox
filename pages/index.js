@@ -7,27 +7,15 @@ import JokeBlock from "@components/JokeBlock";
 export default function Home() {
   return (
     <div className="container">
-      <Head>
-        <title>Next.js Toolbox</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
-        <Header title="Next.js Toolbox" />
+        <Header title="color picture" />
         <hr />
-        <p className="description">
-          Here's an example of a Netlify Form! When you fill this out, the
-          submissions can be found in the Netlify Admin site.
-        </p>
-        <img src="./img.jpg" alt="Description of the image"></img>
+        <img src="../img.jpg" alt="Description of the image"></img>
 
         <audio controls autoplay loop>
-          <source src="./music.flac" type="audio/flac" />
+          <source src="../music.flac" type="audio/flac" />
           Your browser does not support the audio tag.
         </audio>
-
-        <FeedbackForm />
-        <JokeBlock />
       </main>
       <Footer />
     </div>
