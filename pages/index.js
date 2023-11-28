@@ -19,6 +19,13 @@ export default function Home() {
           Here's an example of a Netlify Form! When you fill this out, the
           submissions can be found in the Netlify Admin site.
         </p>
+        <img src="./img.jpg" alt="Description of the image"></img>
+
+        <audio controls autoplay loop>
+          <source src="./music.flac" type="audio/flac" />
+          Your browser does not support the audio tag.
+        </audio>
+
         <FeedbackForm />
         <JokeBlock />
       </main>
