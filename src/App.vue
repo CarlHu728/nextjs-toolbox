@@ -3,7 +3,8 @@ export default {
   methods: {
     playAudio() {
       const audio = new Audio('test.wav');
-      audio.play()
+      audio.play();
+      this.$refs.music.play();
     }
   }
 };
@@ -13,7 +14,7 @@ export default {
 <template>
   <div class="background">
     <h1 class="title">Santa Hatter</h1>
-    <audio src="music2.ogg" autoplay loop></audio>
+    <audio src="music2.ogg" ref="music"></audio>
 
     <div class="empty-space"></div>
 
