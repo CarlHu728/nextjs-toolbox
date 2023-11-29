@@ -1,10 +1,33 @@
 <script>
 export default {
+  data() {
+    return {
+      musicList: [
+        'Feliz Navidad.ogg',
+        'Hallelujah.ogg',
+        'Last Christmas.ogg',
+        'O Christmas Tree.ogg'
+      ],
+      currentMusicIndex: 0,
+      backgroundMusic: null
+    };
+  },
+  computed: {
+    currentMusic() {
+      return this.musicList[this.currentMusicIndex];
+    }
+  },
   methods: {
-    playAudio() {
-      const audio = new Audio('test.wav');
-      audio.play();
-      this.$refs.music.play();
+    playMusic() {
+      const boomSound = new Audio('test.wav');
+      boomSound.play();
+      
+      this.currentMusicIndex = Math.floor(Math.random() * this.musicList.length);
+      if (this.backgroundMusic && !this.backgroundMusic.paused) {
+        this.backgroundMusic.pause();
+      }
+      this.backgroundMusic = new Audio(this.currentMusic);
+      this.backgroundMusic.play();
     }
   }
 };
@@ -13,15 +36,19 @@ export default {
 
 <template>
   <div class="background">
-    <h1 class="title">Santa Hatter</h1>
-    <audio src="music2.ogg" ref="music"></audio>
+    <div class="center-container">
+      <h1 class="title">Santa Hatter</h1>
 
-    <div class="empty-space"></div>
+      <div class="empty-space"></div>
 
-    <div class="box">
-      <button class="button" @click="playAudio">
-        Click Me
-      </button>
+      <div class="box">
+        <button class="button" @click="playMusic">
+          Click Me
+        </button>
+      </div>
+
+      
+      <h1 class="music">Current Music: {{ currentMusic }}</h1>
     </div>
   </div>
 </template>
@@ -31,12 +58,14 @@ export default {
   text-align: center;
   margin-top: 20vw;
   font-size: 15vw;
+  font-family: Caslon;
   color: white;
 }
 
 .button {
   /* text-align: center; */
-  font-size: 8vw;
+  font-size: 6vw;
+  font-family: Pixeloid Mono;
   color: white;
 
   background-image: url('/button_normal.png');
@@ -82,6 +111,25 @@ export default {
 
 .empty-space {
   margin-bottom: 30vh;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  height: 100vw;
+}
+
+@media (max-width: 1000px) {
+  .center-container {
+    justify-content: initial;
+    display: initial;
+  }
+}
+
+.music {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
 }
 
 </style>
