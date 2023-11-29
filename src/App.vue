@@ -4,10 +4,10 @@ export default {
   data() {
     return {
       musicList: [
-        'Feliz Navidad.ogg',
-        'Hallelujah.ogg',
-        'Last Christmas.ogg',
-        'O Christmas Tree.ogg'
+        'https://santahatter.net/Feliz Navidad.ogg',
+        'https://santahatter.net/Hallelujah.ogg',
+        'https://santahatter.net/Last Christmas.ogg',
+        'https://santahatter.net/O Christmas Tree.ogg'
       ],
       currentMusicIndex: 0,
       backgroundMusic: null,
