@@ -11,10 +11,11 @@ export default {
 
 <template>
   <div class="box">
-    <h1 class="title">色图</h1>
+    <h1 class="title">Santa Hatter</h1>
     <!-- <img src="/img.jpg"> -->
-    <audio src="music2.ogg" autoplay></audio>
+    <audio src="music2.ogg" autoplay loop></audio>
     <audio ref="audio" src="test.wav"></audio>
+    <br>
     <button class="button" @click="playAudio"></button>
   </div>
 </template>
@@ -23,12 +24,11 @@ export default {
 .title {
   text-align: center;
   font-size: 100px;
+  color: white;
 }
 
 .button {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  text-align: center;
 
   background-image: url('/img.jpg');
   background-size: cover;
@@ -37,11 +37,15 @@ export default {
 }
 
 .box {
-  background-image: url('/background.avif');
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('/background.webp');
   background-size: cover;
-  background-position: center; /* 将背景图片水平垂直居中 */
-  height: 100vh; /* 设置容器高度为视窗高度的100% */
+  background-position: center;
+  height: 100vh;
   width: 100vw;
+  
 }
 
 </style>
