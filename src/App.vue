@@ -12,9 +12,8 @@ export default {
 <template>
   <div class="box">
     <h1 class="title">色图</h1>
-    <br>
     <!-- <img src="/img.jpg"> -->
-    <!-- <audio src="music.mp3" autoplay></audio> -->
+    <audio src="music2.ogg" autoplay></audio>
     <audio ref="audio" src="test.wav"></audio>
     <button class="button" @click="playAudio"></button>
   </div>
@@ -27,18 +26,22 @@ export default {
 }
 
 .button {
-  /* text-align: center; */
-  margin-left: 25%;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+
   background-image: url('/img.jpg');
   background-size: cover;
-  width: 50%;
-  height: 50%;
+  width: 50vw;
+  height: 50vh;
 }
 
 .box {
-  height: 100vh; /* 盒子高度为视窗高度的100% */
-  width: 100vw; /* 盒子宽度为视窗宽度的100% */
-  /* background-color: #ccc; 为了更好看，设置背景颜色 */
+  background-image: url('/background.avif');
+  background-size: cover;
+  background-position: center; /* 将背景图片水平垂直居中 */
+  height: 100vh; /* 设置容器高度为视窗高度的100% */
+  width: 100vw;
 }
 
 </style>
