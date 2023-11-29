@@ -229,7 +229,8 @@ export default {
   top: 0;
   left: -100vw;
   height: auto;
-  width: 200vw
+  width: 200vw;
+  pointer-events: none;
 }
 
 </style>
