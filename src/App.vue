@@ -29,23 +29,23 @@ export default {
 .title {
   text-align: center;
   margin-top: 20px;
-  font-size: 200px;
+  font-size: 15vw;
   color: white;
 }
 
 .button {
   /* text-align: center; */
-  font-size: 100px;
+  font-size: 8vw;
   color: white;
 
   background-image: url('/button_normal.png');
   background-color: rgba(0, 0, 0, 0);
   background-size: cover;
 
-  width: 400pt;
-  height: 160pt;
+  width: 40vw;
+  height: 16vw;
 
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   border: none;
   cursor: pointer;
   /* 正常状态背景 */
