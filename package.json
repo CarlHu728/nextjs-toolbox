@@ -8,7 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "@cycjimmy/canvas-snow": "^3.0.2",
+    "canvas-snow": "^0.2.1",
+    "vue": "^3.3.4",
+    "vue-let-it-snow": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",

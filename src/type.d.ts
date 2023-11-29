@@ -1,0 +1,1 @@
+// declare module 'vue-let-it-snow';
