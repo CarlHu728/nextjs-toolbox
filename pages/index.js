@@ -8,17 +8,16 @@ export default function Home() {
   return (
     <div className="container">
       <main>
-        <Header title="color picture" />
+        <text title="color picture" />
 
         <img src="/img.jpg" alt="色图"></img>
 
         <audio controls autoplay loop>
-          <source src="/music.flac" type="audio/flac" />
+          <source src="/music.mp3" type="audio/mp3" />
           Your browser does not support the audio tag.
         </audio>
 
       </main>
-      <Footer />
     </div>
   );
 }
