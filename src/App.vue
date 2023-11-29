@@ -35,8 +35,8 @@ export default {
   },
   methods: {
     playMusic() {
-      const boomSound = new Audio('test.wav');
-      boomSound.play();
+      const popSound = new Audio('pop.wav');
+      popSound.play();
       
       this.currentMusicIndex = Math.floor(Math.random() * this.musicList.length);
       if (this.backgroundMusic && !this.backgroundMusic.paused) {
@@ -205,17 +205,17 @@ export default {
 }
 
 .center-container {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   height: 100vw;
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .center-container {
     justify-content: initial;
     display: initial;
   }
-}
+} */
 
 .music {
   text-align: center;
