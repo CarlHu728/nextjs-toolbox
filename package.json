@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@cycjimmy/canvas-snow": "^3.0.2",
+    "axios": "^1.6.2",
     "canvas-snow": "^0.2.1",
     "vue": "^3.3.4",
     "vue-let-it-snow": "^1.0.0"

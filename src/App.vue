@@ -1,5 +1,5 @@
 <script>
-
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -44,7 +44,13 @@ export default {
     }
   },
   methods: {
+    get_return() {
+      axios.get('https://service-li41l8lm-1321128542.nj.tencentapigw.com/release/helloworld-1701344777')
+      .then(response => console.log(response.data));
+    },
+
     playMusic() {
+      this.get_return();
       const popSound = new Audio('pop.wav');
       popSound.play();
       
