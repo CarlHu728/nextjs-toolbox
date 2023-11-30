@@ -26,6 +26,15 @@ export default {
     };
     
   },
+  beforeMount() {
+    // window.addEventListener('scroll', this.disableScroll);
+    window.addEventListener('touchmove', function (e) {
+      e.preventDefault();
+    }, { passive: false });
+  },
+  beforeDestroy() {
+    // window.removeEventListener('scroll', this.disableScroll);
+  },
   mounted() {
     this._initCavas();
   },
@@ -45,6 +54,9 @@ export default {
       }
       this.backgroundMusic = new Audio(this.currentMusic);
       this.backgroundMusic.play();
+    },
+    disableScroll() {
+      window.scrollTo(0, 0); // 将滚动位置重置为顶部
     },
     showInfo() {
       this.isInfo = true;
@@ -146,6 +158,11 @@ export default {
 </template>
 
 <style>
+
+:root {
+  --test: 20vw;
+}
+
 .title {
   text-align: center;
   margin-top: 20vw;
@@ -225,11 +242,11 @@ export default {
 }
 
 .snow {
-  z-index: 100;
+  /* z-index: 100;r */
   position: fixed;
   top: 0;
   left: -100vw;
-  height: auto;
+  height: 200vh;
   width: 200vw;
   pointer-events: none;
 }
