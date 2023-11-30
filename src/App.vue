@@ -7,7 +7,8 @@ export default {
         'Feliz Navidad.mp3',
         'Hallelujah.mp3',
         'Last Christmas.mp3',
-        'O Christmas Tree.mp3'
+        'O Christmas Tree.mp3',
+        'All I Want For Christmas Is You.mp3'
       ],
       currentMusicIndex: 0,
       backgroundMusic: null,
