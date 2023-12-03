@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     get_return() {
-      axios.get('https://service-li41l8lm-1321128542.nj.tencentapigw.com/release/helloworld-1701344777')
+      axios.get('https://1321128542-7391rxq1a7-nj.scf.tencentcs.com')
       .then(response => console.log(response.data));
     },
 
