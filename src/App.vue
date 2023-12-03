@@ -56,14 +56,45 @@ export default {
       });
     },
 
+    compressImage(file, options) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const img = new Image();
+
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            const maxWidth = options.maxWidth || img.width;
+            const maxHeight = options.maxHeight || img.height;
+            const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+
+            canvas.width = img.width * scale;
+            canvas.height = img.height * scale;
+
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            const compressedDataURL = canvas.toDataURL('image/jpeg', 0.8);
+            resolve(compressedDataURL);
+          };
+
+          img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    },
+
     handleFileChange(event) {
       const file = event.target.files[0];
       if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.imageSrc = e.target.result;
-        };
-        reader.readAsDataURL(file);
+        const f = URL.createObjectURL(file);
+        this.compressImage(file, { maxWidth: 400, maxHeight: 400 })
+        .then((compressedImage) => {
+          this.imageSrc = compressedImage;
+        })
       }
     },
 
@@ -252,7 +283,7 @@ export default {
 }
 
 .empty-space {
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 
 .center-container {
