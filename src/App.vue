@@ -22,7 +22,8 @@ export default {
       t: 0,
       isInfo: false,
       abotuImage: 'http://cdn.lixsx.net/lixsx.jpg',
-      bgImage: 'http://cdn.lixsx.net/main-bg.jpg'
+      bgImage: 'http://cdn.lixsx.net/main-bg.jpg',
+      imageSrc: ""
     };
     
   },
@@ -45,8 +46,11 @@ export default {
   },
   methods: {
     get_return() {
-      axios.get('https://1321128542-7391rxq1a7-nj.scf.tencentcs.com')
-      .then(response => console.log(response.data));
+      axios.get('https://hatter-hat-vhcmaxttpc.cn-hangzhou.fcapp.run')
+      .then(response => {
+        console.log(response.data);
+        this.imageSrc = 'data:image/png;base64,' + response.data;
+      });
     },
 
     playMusic() {
@@ -146,18 +150,18 @@ export default {
 
 <template>
   <div class="background">
-    <div class="center-container">
-      <h1 class="title">Santa Hatter</h1>
-
-      <div class="empty-space"></div>
-
-      <div class="box">
-        <button class="button" @click="playMusic">
-          Click Me
-        </button>
-      </div>
-      <h1 class="music">Current Music: {{ currentMusic }}</h1>
+    <h1 class="title">Santa Hatter</h1>
+    <div class="box">
+      <img :src="imageSrc" alt="Decoded Image" class="img">
     </div>
+    <div class="empty-space"></div>
+
+    <div class="box">
+      <button class="button" @click="playMusic">
+        Click Me
+      </button>
+    </div>
+    <h1 class="music">Current Music: {{ currentMusic }}</h1>
   </div>
   <canvas id="canvas" ref="canvas" class="snow"></canvas>
   
@@ -225,7 +229,7 @@ export default {
 }
 
 .empty-space {
-  margin-bottom: 30vh;
+  margin-bottom: 10vh;
 }
 
 .center-container {
@@ -255,6 +259,15 @@ export default {
   height: 200vh;
   width: 200vw;
   pointer-events: none;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50vw;
+  height: 30vh;
+  width: auto;
 }
 
 </style>
