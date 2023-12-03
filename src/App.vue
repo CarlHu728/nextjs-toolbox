@@ -46,11 +46,23 @@ export default {
   },
   methods: {
     get_return() {
-      axios.get('https://hatter-hat-vhcmaxttpc.cn-hangzhou.fcapp.run')
+      console.log('send')
+      axios.get('https://hatter-hat-vhcmaxttpc.cn-hangzhou.fcapp.run?' + this.imageSrc)
       .then(response => {
         console.log(response.data);
         this.imageSrc = 'data:image/png;base64,' + response.data;
       });
+    },
+
+    handleFileChange(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.imageSrc = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
     },
 
     playMusic() {
@@ -152,6 +164,7 @@ export default {
   <div class="background">
     <h1 class="title">Santa Hatter</h1>
     <div class="box">
+      <input type="file" @change="handleFileChange" />
       <img :src="imageSrc" alt="Decoded Image" class="img">
     </div>
     <div class="empty-space"></div>
@@ -237,13 +250,6 @@ export default {
   justify-content: center;
   height: 100vw;
 }
-
-/* @media (max-width: 1000px) {
-  .center-container {
-    justify-content: initial;
-    display: initial;
-  }
-} */
 
 .music {
   text-align: center;
