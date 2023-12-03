@@ -23,7 +23,8 @@ export default {
       isInfo: false,
       abotuImage: 'http://cdn.lixsx.net/lixsx.jpg',
       bgImage: 'http://cdn.lixsx.net/main-bg.jpg',
-      imageSrc: ""
+      imageSrc: "",
+      state: "please upload your profile"
     };
     
   },
@@ -51,6 +52,7 @@ export default {
       .then(response => {
         console.log(response.data);
         this.imageSrc = 'data:image/png;base64,' + response.data;
+        this.state = 'finish';
       });
     },
 
@@ -67,6 +69,7 @@ export default {
 
     playMusic() {
       this.get_return();
+      this.state = 'loading...';
       const popSound = new Audio('pop.wav');
       popSound.play();
       
@@ -170,13 +173,17 @@ export default {
     <div class="box">
       <img :src="imageSrc" alt="Decoded Image" class="img">
     </div>
-    <div class="empty-space"></div>
 
+    <h1 class="label">{{ state }}</h1>
+
+    <div class="empty-space"></div>
     <div class="box">
       <button class="button" @click="playMusic">
         Click Me
       </button>
     </div>
+    
+
     <h1 class="music">Current Music: {{ currentMusic }}</h1>
   </div>
   <canvas id="canvas" ref="canvas" class="snow"></canvas>
@@ -277,6 +284,13 @@ export default {
   left: 50vw;
   height: 30vh;
   width: auto;
+}
+
+.label {
+  text-align: center;
+  color: black;
+  font-family: Caslon;
+  font-size: 30px;
 }
 
 </style>
