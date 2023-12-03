@@ -29,9 +29,9 @@ export default {
   },
   beforeMount() {
     // window.addEventListener('scroll', this.disableScroll);
-    window.addEventListener('touchmove', function (e) {
-      e.preventDefault();
-    }, { passive: false });
+    // window.addEventListener('touchmove', function (e) {
+    //   e.preventDefault();
+    // }, { passive: false });
   },
   beforeDestroy() {
     // window.removeEventListener('scroll', this.disableScroll);
@@ -78,7 +78,7 @@ export default {
       this.backgroundMusic.play();
     },
     disableScroll() {
-      window.scrollTo(0, 0); // 将滚动位置重置为顶部
+      // window.scrollTo(0, 0); // 将滚动位置重置为顶部
     },
     showInfo() {
       this.isInfo = true;
@@ -163,8 +163,11 @@ export default {
 <template>
   <div class="background">
     <h1 class="title">Santa Hatter</h1>
+    
     <div class="box">
       <input type="file" @change="handleFileChange" />
+    </div>
+    <div class="box">
       <img :src="imageSrc" alt="Decoded Image" class="img">
     </div>
     <div class="empty-space"></div>
